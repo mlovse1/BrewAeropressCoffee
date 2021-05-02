@@ -6,12 +6,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="contact">
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
+    <ion-list-header class="em">Send me an email at:</ion-list-header>
+    <ion-item class="em">
       <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      @mlovse1@live.maryville.edu
     </ion-item>
   </ion-list>
+
+  <div class="form">
+    <ion-item lines="none">
+    <ion-input class="input" type="text" placeholder="Name" #name required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+    <ion-input class="input" type="email" placeholder="Email" #email required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+    <ion-textarea class="textarea" type="comments" placeholder="Comments" #comments required></ion-textarea>
+    </ion-item>
+  </div>
+
+  <button class="cont" fill="clear" (click)="SubmitComments()">Submit</button>
 </ion-content>

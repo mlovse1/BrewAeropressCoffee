@@ -1,0 +1,74 @@
+<ion-content padding class="timer">
+
+  <!--
+  <ion-item>
+    <ion-label>Select: Coffee Grind</ion-label>
+    <ion-select-option value="fine">Fine</ion-select-option>
+    <ion-select-option value="med">Medium</ion-select-option>
+    <ion-select-option value="medcs">Medium-Coarse</ion-select-option>
+    <ion-select-option value="cors">Corse</ion-select-option>
+  </ion-item>
+
+-->
+<p>Click to choose grind that you would like to use.</p>
+  <ion-item class="grind">
+    <ion-label>Grind Option</ion-label>
+    <ion-select #myGrind value="" okText="Okay" cancelText="Dismiss" (ionChange)="pickGrind(myGrind.value)">
+      <ion-option value="fine">Fine</ion-option>
+      <ion-option value="med">Medium</ion-option>
+      <ion-option value="medcs">Medium-Coarse</ion-option>
+      <ion-option value="cors">Coarse</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+
+<br>
+
+
+  <p>Click below to set desired brew time. Recommended brew time will populate when grind is selected. </p>
+
+<br>
+  <ion-item class="top" color="dark">
+    <ion-label>Coffee Time Duration</ion-label>
+    <ion-datetime #myPicker displayFormat="mm:ss" placeholder="Pick it" [(ngModel)]="fullTime" (ionChange)="updateMyDate(myPicker.value)">    
+    </ion-datetime>
+  </ion-item>
+ 
+
+<circle-progress color="darkblue" (click)="startTimer()"
+[percent]="percent"
+[maxPercent]="100"
+[radius]="radius"
+[showTitle]="false"  
+[showSubtitle]="true"
+[subtitle]="remainingTime"
+[subtitleFontSize]="40"
+[showUnits]="false"
+[outerStrokeWidth]="16"
+[outerStrokeColor]="'#8000FF'"
+[backgroundStroke]="'#33003F'"
+[backgroundStrokeWidth]="3"
+[showInnerStroke]="false"
+></circle-progress>
+
+<p>Elapsed Time:</p>
+
+<p>{{elapsed.h}}:{{elapsed.m}}:{{elapsed.s}}</p>
+
+<div>
+<ion-fab bottom right slot="fixed" class="fab">
+  <ng-container *ngIf="timer == false; else running">
+    <button ion-fab (click)="startTimer()">
+        <ion-icon name="play"></ion-icon>
+      </button>
+  </ng-container> 
+  <ng-template #running>
+      <button ion-fab (click)="stopTimer()">
+          <ion-icon name="square"></ion-icon>
+        </button>
+  </ng-template>
+</ion-fab>
+</div>
+
+</ion-content>

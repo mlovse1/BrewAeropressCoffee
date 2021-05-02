@@ -1,0 +1,29 @@
+
+
+<ion-content ion-padding ion-text-center class="home">
+  
+ 
+
+  <div class="logo">
+    <img src="../../assets/imgCoffee.png">
+  </div>
+  
+  
+  
+  <div class="form">
+  <ion-item  lines="none">
+    <ion-input placeholder="Enter your email address" type="text" #email></ion-input>
+  </ion-item>
+  
+  <ion-item lines="none">
+    <ion-input placeholder="Password" type='password' #password></ion-input>
+  </ion-item>
+</div>
+
+  <button class="logbtn" expand="block"(click)="signInUser()">Login</button>
+
+  <button class="logbtn" fill="clear" (click)="FormRegister()">Need to sign up? Click here!</button>
+
+  
+  </ion-content>
+  
